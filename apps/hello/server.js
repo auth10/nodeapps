@@ -93,7 +93,6 @@ http.createServer(function (req, res) {
 		res.end(text);
 	});
 
-	res.writeHead(200, { 'Content-Type': 'text/plain'});
-		res.end('hahah');
+	
 	
 }).listen(process.env.PORT || 8000);
