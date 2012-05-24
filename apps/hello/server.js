@@ -81,8 +81,8 @@ openssl x509 -req -in myCsr.pem -signkey myKey.pem -out myCertificate.pem</pre>
 
 http.createServer(function (req, res) {
 	
-	/*var blob = azure.createBlobService();
-	blob.getBlobText('a10node','hello.yml', function(error, text) {
+	var blob = azure.createBlobService();
+	/*blob.getBlobText('a10node','hello.yml', function(error, text) {
 		if (error)
 		{
 			res.writeHead(200, { 'Content-Type': 'text/plain'});
