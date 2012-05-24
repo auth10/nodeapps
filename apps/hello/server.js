@@ -1,4 +1,5 @@
 var http = require('http');
+var azure = require('azure');
 
 var html = (function () {/*
 <html>
@@ -79,6 +80,17 @@ openssl x509 -req -in myCsr.pem -signkey myKey.pem -out myCertificate.pem</pre>
 |*/}).toString().match(/[^\n]\n([^\|]*)/)[1];
 
 http.createServer(function (req, res) {
-	res.writeHead(200, { 'Content-Type': 'text/html'});
-	res.end(html);
+	
+	var blob = azure.createBlobService();
+	blob.getBlobText('a10node','hello.yml', function(error, text) {
+		if (error)
+		{
+			res.writeHead(200, { 'Content-Type': 'text/plain'});
+			res.end(error);
+		} 
+
+		res.writeHead(200, { 'Content-Type': 'text/plain'});
+		res.end(text);
+	});
+	
 }).listen(process.env.PORT || 8000);
