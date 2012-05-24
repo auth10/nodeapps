@@ -1,0 +1,6 @@
+{
+  "azure": {
+    "script": "server.js",
+    "hosts": {}
+  }
+}
