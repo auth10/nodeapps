@@ -1,5 +1,5 @@
 var http = require('http');
-var azure = require('azure');
+var config = require('./yaml-config-azure');
 
 var html = (function () {/*
 <html>
@@ -79,19 +79,16 @@ openssl x509 -req -in myCsr.pem -signkey myKey.pem -out myCertificate.pem</pre>
 </html>
 |*/}).toString().match(/[^\n]\n([^\|]*)/)[1];
 
+var settings;
+config.load('hello.yml', 'a10node', null, function(error, result) {
+	settings = result;
+});
+
 http.createServer(function (req, res) {
 	
-	var blob = azure.createBlobService();
-	blob.getBlobToText('a10node','hello.yml', function(error, text) {
-		if (error)
-		{
-			res.writeHead(200, { 'Content-Type': 'text/plain'});
-			res.end(error);
-		} 
-
-		res.writeHead(200, { 'Content-Type': 'text/plain'});
-		res.end(text);
-	});
+	
+	res.writeHead(200, { 'Content-Type': 'text/plain'});
+	res.end('config ' + settings.redis.port);
 
 	
 	

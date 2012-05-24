@@ -1,1 +1,8 @@
-foo: bar
+default:
+  redis:
+    port: 6379                # redis server port
+    host: '127.0.0.1'         # redis host
+    password: ''              # to use with AUTH
+test:
+  redis:
+    host: 'produc'         # redis host
