@@ -12,6 +12,7 @@ httpProxy.createServer(function (req, res, proxy) {
 
   proxy.proxyRequest(req, res, {
     host: 'google.com',
-    port: 80
+    port: 80,
+    target : { https: true }
   });
 }).listen(process.env.PORT || 9000);
