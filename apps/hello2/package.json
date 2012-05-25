@@ -1,6 +1,10 @@
 {
   "azure": {
     "script": "server.js",
-    "hosts": {}
+    "hosts": {
+      "mygoogle.com": {
+        "ssl": "allowed"
+      }
+    }
   }
 }
