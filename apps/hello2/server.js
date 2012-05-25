@@ -11,8 +11,8 @@ httpProxy.createServer(function (req, res, proxy) {
   console.log(req.url);
 
   proxy.proxyRequest(req, res, {
-    host: 'google.com',
-    port: 80,
-    target : { https: true }
+    host: 'auth10-int.accesscontrol.windows.net',
+    port: 443,
+    //target : { https: true }
   });
 }).listen(process.env.PORT || 9000);
