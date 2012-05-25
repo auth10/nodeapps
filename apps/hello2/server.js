@@ -1,17 +1,26 @@
 var http = require('http'),
+	https = require('https');
+	fs = require('fs');
     httpProxy = require('http-proxy');
 
-//
-// Create a proxy server with custom application logic
-//
-httpProxy.createServer(function (req, res, proxy) {
-  //
-  // Put your custom server logic here
-  //
-  console.log(req.url);
+var options = {
+  https: {
+    key: fs.readFileSync('mygoogle.com.key.pem', 'utf8'),
+    cert: fs.readFileSync('mygoogle.com.certificate.pem', 'utf8')
+  },
+  target: {
+    https: true // This could also be an Object with key and cert properties
+  }
+};
 
-  proxy.proxyRequest(req, res, {
-    host: 'google.com',
-    port: 80
-  });
+var proxy = new httpProxy.HttpProxy({ 
+	  target: {
+	    host: 'google.com', 
+	    port: 80,
+	    https: true
+	  }
+	});
+
+https.createServer(options.https, function (req, res) {
+  proxy.proxyRequest(req, res);
 }).listen(process.env.PORT || 9000);
