@@ -1,29 +1,17 @@
-var fs = require('fs'),
-	http = require('http'),
-    https = require('https'),
+var http = require('http'),
     httpProxy = require('http-proxy');
 
-var options = {
-  https: {
-    key: fs.readFileSync(__dirname + '/mygoogle.com.key.pem', 'utf8'),
-    cert: fs.readFileSync(__dirname + '/mygoogle.com.certificate.pem', 'utf8')
-  },
-  target: {
-    https: true // This could also be an Object with key and cert properties
-  }
-};
-
-
-httpProxy.createServer(80, 'google.com', options).listen(process.env.PORT || 8001);
-
 //
-// Create the target HTTPS server for both cases
+// Create a proxy server with custom application logic
 //
+httpProxy.createServer(function (req, res, proxy) {
+  //
+  // Put your custom server logic here
+  //
+  console.log(req.url);
 
-/*
-https.createServer(options.https, function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.write('hello https\n');
-  res.end();
-}).listen(process.env.PORT || 8002);
-*/
+  proxy.proxyRequest(req, res, {
+    host: 'google.com',
+    port: 80
+  });
+}).listen(process.env.PORT || 9000);
