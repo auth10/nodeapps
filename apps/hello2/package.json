@@ -3,7 +3,9 @@
     "script": "server.js",
     "hosts": {
       "mygoogle.com": {
-        "ssl": "allowed"
+        "ssl": "required",
+        "sslKeyName": "mygoogle.com.key.pem",
+        "sslCertificateName": "mygoogle.com.certificate.pem"
       }
     }
   }
