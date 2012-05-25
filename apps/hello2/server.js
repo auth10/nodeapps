@@ -14,20 +14,7 @@ var options = {
 };
 
 
-//
-// Create an instance of HttpProxy to use with another HTTPS server
-//
-var proxy = new httpProxy.HttpProxy({ 
-  target: {
-    host: 'google.com', 
-    port: 80,
-    https: false
-  }
-});
-
-http.createServer(function (req, res) {
-  proxy.proxyRequest(req, res);
-}).listen(process.env.PORT || 8002);
+httpProxy.createServer(80, 'google.com', options).listen(process.env.PORT || 8001);
 
 //
 // Create the target HTTPS server for both cases
