@@ -11,7 +11,7 @@ httpProxy.createServer(function (req, res, proxy) {
   console.log(req.url);
 
   proxy.proxyRequest(req, res, {
-    host: 'yahoo.com',
+    host: 'google.com',
     port: 80
   });
 }).listen(process.env.PORT || 9000);
