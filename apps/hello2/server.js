@@ -20,7 +20,7 @@ var options = {
 var proxy = new httpProxy.HttpProxy({ 
   target: {
     host: 'google.com', 
-    port: 443,
+    port: 80,
     https: true
   }
 });
