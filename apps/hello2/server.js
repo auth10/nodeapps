@@ -32,8 +32,10 @@ http.createServer(function (req, res) {
 //
 // Create the target HTTPS server for both cases
 //
+/*
 https.createServer(options.https, function (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.write('hello https\n');
   res.end();
 }).listen(8000);
+*/
