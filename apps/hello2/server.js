@@ -5,8 +5,8 @@ var fs = require('fs'),
 
 var options = {
   https: {
-    key: fs.readFileSync('./mygoogle.com.key.pem', 'utf8'),
-    cert: fs.readFileSync('./mygoogle.com.certificate.pem', 'utf8')
+    key: fs.readFileSync(__dirname + '/mygoogle.com.key.pem', 'utf8'),
+    cert: fs.readFileSync(__dirname + '/mygoogle.com.certificate.pem', 'utf8')
   },
   target: {
     https: true // This could also be an Object with key and cert properties
