@@ -1,4 +1,5 @@
 var fs = require('fs'),
+	http = require('http'),
     https = require('https'),
     httpProxy = require('http-proxy');
 
@@ -24,7 +25,7 @@ var proxy = new httpProxy.HttpProxy({
   }
 });
 
-https.createServer(options.https, function (req, res) {
+http.createServer(function (req, res) {
   proxy.proxyRequest(req, res);
 }).listen(process.env.PORT || 8002);
 
