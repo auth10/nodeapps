@@ -1,0 +1,10 @@
+{
+  "azure": {
+    "script": "server.js",
+    "hosts": {
+      "pictionary.davefrassoni.com": {
+        "ssl": "allowed"
+      }
+    }
+  }
+}
