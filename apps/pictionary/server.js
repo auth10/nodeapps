@@ -3,8 +3,7 @@ var io = require('socket.io').listen(app, { log: false });
 var fs = require('fs');
 var sanitizer = require('sanitizer');
 
-app.listen(8089);
-console.log('>>> Pictionary started at port 8080 >>>');
+app.listen(process.env.PORT || 7000);
 
 function handler (req, res) {
 	fs.readFile(__dirname + '/client' + req.url,
