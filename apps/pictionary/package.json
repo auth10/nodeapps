@@ -1,6 +1,7 @@
 {
   "azure": {
     "script": "server.js",
+    "pathRoutingDisabled": true,
     "hosts": {
       "pictionary.davefrassoni.com": {
         "ssl": "allowed"
