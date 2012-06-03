@@ -3,8 +3,11 @@ var socketio = require('socket.io');
 var fs = require('fs');
 var sanitizer = require('sanitizer');
 
-app.listen(process.env.PORT || 7000);
-var io = socketio.listen(app, { log: false });
+var port = process.env.PORT || 7000;
+app.listen(port);
+console.log('server listening on ' + port);
+var io = socketio.listen(app, { log: true });
+console.log('socket.io started');
 
 function handler (req, res) {
 	fs.readFile(__dirname + '/client' + req.url,
