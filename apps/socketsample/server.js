@@ -10,16 +10,22 @@ console.log('socket.io started');
 var fs = require('fs');
 
 function handler (req, res) {
-	fs.readFile(__dirname + '\client' + req.url,
-	function (err, data) {
-		if (err) {
-			res.writeHead(500);
-			return res.end('Error loading requested file ' + req.url);
+	var reqFile = req.url;
+	if (reqFile == "/") {
+		reqFile = "/index.html";
+	}
+	
+	fs.readFile(__dirname + '/client' + reqFile,
+		function (err, data) {
+			if (err) {
+				res.writeHead(500);
+				return res.end('Error loading requested file ' + reqFile);
+			}
+			
+			res.writeHead(200);
+			res.end(data);
 		}
-		
-		res.writeHead(200);
-		res.end(data);
-	});
+	);
 }
 
 io.sockets.on('connection', function (socket) {
