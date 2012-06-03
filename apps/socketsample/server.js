@@ -1,15 +1,11 @@
-var app = require('http').createServer(handler);
+var app = require('express').createServer();
 var port = process.env.PORT || 7000;
 app.listen(port);
 console.log('server listening on ' + port);
 
-var socketio = require('socket.io');
-var io = socketio.listen(app, { log: true });
-console.log('socket.io started');
-
 var fs = require('fs');
 
-function handler (req, res) {
+app.get('*', function(req, res){
 	var reqFile = req.url;
 	if (reqFile == "/") {
 		reqFile = "/index.html";
@@ -26,7 +22,11 @@ function handler (req, res) {
 			res.end(data);
 		}
 	);
-}
+});
+
+var socketio = require('socket.io');
+var io = socketio.listen(app, { log: true });
+console.log('socket.io started');
 
 io.sockets.on('connection', function (socket) {
 	var myColor = rndColor();
