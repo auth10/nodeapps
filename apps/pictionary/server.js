@@ -22,7 +22,7 @@ var users = [], canvas = [];
 var dictionary, currentWord, currentPlayer;
 
 // Load words dictionary into memory
-fs.readFile('dictionary.txt', function (err, data) {
+fs.readFile(__dirname + '/dictionary.txt', function (err, data) {
 	dictionary = data.toString('utf-8').split("\r\n");
 });
 
