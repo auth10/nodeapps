@@ -1,10 +1,10 @@
 var app = require('http').createServer(handler);
-var io = require('socket.io');
+var socketio = require('socket.io');
 var fs = require('fs');
 var sanitizer = require('sanitizer');
 
 app.listen(process.env.PORT || 7000);
-io.listen(app, { log: false });
+var io = socketio.listen(app, { log: false });
 
 function handler (req, res) {
 	fs.readFile(__dirname + '/client' + req.url,
