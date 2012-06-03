@@ -10,7 +10,7 @@ console.log('socket.io started');
 var fs = require('fs');
 
 function handler (req, res) {
-	fs.readFile(__dirname + '/client' + req.url,
+	fs.readFile(__dirname + '\client' + req.url,
 	function (err, data) {
 		if (err) {
 			res.writeHead(500);
