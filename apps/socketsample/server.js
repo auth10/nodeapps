@@ -3,6 +3,9 @@ var port = process.env.PORT || 7000;
 app.listen(port);
 console.log('server listening on ' + port);
 
+var version = process.version;
+console.log('current node.js version: ' + version);
+
 var fs = require('fs');
 
 app.get('*', function(req, res){
