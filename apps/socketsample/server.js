@@ -11,7 +11,7 @@ var fs = require('fs');
 app.get('*', function(req, res){
 	var reqFile = req.url;
 	if (reqFile == "/socketsample") {
-		reqFile = "/socketsample/client/index.html";
+		reqFile = "/client/index.html";
 	}
 	
 	fs.readFile(__dirname + reqFile,
