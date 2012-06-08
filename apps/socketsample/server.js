@@ -16,7 +16,7 @@ app.get('*', function(req, res){
 		reqFile = "/index.html";
 	}
 	
-	fs.readFile(__dirname + "/client" + reqFile,
+	fs.readFile(__dirname + "/socketsample/client" + reqFile,
 		function (err, data) {
 			if (err) {
 				res.writeHead(500);
