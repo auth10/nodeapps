@@ -10,17 +10,16 @@ var fs = require('fs');
 
 app.get('*', function(req, res){
 	var reqFile = req.url;
-	reqFile = reqFile.substring(13) // removing "/socketsample" from req.url
 	
-	if (reqFile == "/" || reqFile == "") {
-		reqFile = "/index.html";
+	if (reqFile == "/socketsample" || reqFile == "/socketsample/") {
+		reqFile = "/socketsample/index.html";
 	}
 	
-	fs.readFile(__dirname + "/socketsample/client" + reqFile,
+	fs.readFile(__dirname + "/client" + reqFile,
 		function (err, data) {
 			if (err) {
 				res.writeHead(500);
-				return res.end('Error loading requested file ' + reqFile);
+				return res.end('Error loading requested file ' + __dirname + "/client" + reqFile);
 			}
 			
 			res.writeHead(200);
