@@ -12,7 +12,7 @@ app.get('*', function(req, res){
 	var reqFile = req.url;
 	reqFile = reqFile.substring(13) // removing "/socketsample" from req.url
 	
-	if (reqFile == "/") {
+	if (reqFile == "/" || reqFile == "") {
 		reqFile = "/index.html";
 	}
 	
