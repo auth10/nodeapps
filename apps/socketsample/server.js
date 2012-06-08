@@ -10,11 +10,11 @@ var fs = require('fs');
 
 app.get('*', function(req, res){
 	var reqFile = req.url;
-	if (reqFile == "/") {
-		reqFile = "/index.html";
+	if (reqFile == "/socketsample") {
+		reqFile = "/socketsample/index.html";
 	}
 	
-	fs.readFile(__dirname + '/client' + reqFile,
+	fs.readFile(__dirname + reqFile,
 		function (err, data) {
 			if (err) {
 				res.writeHead(500);
