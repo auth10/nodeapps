@@ -10,7 +10,7 @@ var fs = require('fs');
 
 app.get('*', function(req, res){
 	var reqFile = req.url;
-	reqFile = reqFile.substring(0, 12) // removing "/socketsample" from req.url
+	reqFile = reqFile.substring(13) // removing "/socketsample" from req.url
 	
 	if (reqFile == "/") {
 		reqFile = "/index.html";
