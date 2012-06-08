@@ -1,6 +1,9 @@
 {
   "azure": {
     "script": "server.js",
-    "hosts": {}
+    "hosts": {},
+    "engines": {
+      "node": "= 0.6.19" 
+    }
   }
 }
