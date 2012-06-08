@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var socket = io.connect(':7000');
+	var socket = io.connect('.');
 	var status = $("#status");
 	var chatcontent = $("#chatcontent");
 	var chatinput = $('#chatinput');
