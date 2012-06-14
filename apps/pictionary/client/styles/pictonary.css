@@ -37,9 +37,9 @@ body
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
-/* -------------------------- */
+/* ---------------------- */
 /* first panel section */
-/* -------------------------- */
+/* ---------------------- */
 
 #firstpanel
 {
@@ -64,7 +64,8 @@ body
 #people p
 {
 	padding:0px;
-	margin:0px;
+	margin-top:0px;
+	margin-bottom:5px;
 }
 
 #clearcanvas
@@ -73,26 +74,23 @@ body
 	padding:5px;
 }
 
-#colorpicker
+.color
 {
-	position:absolute;
-	background:#444;
-	padding:10px;
-	border-radius:5px;
-	border:solid 1px #ccc;
+	padding:2px;
+	border:solid 2px #ccc;
 }
 
-/* ---------------------- */
+/* -------------------------- */
 /* second panel section */
-/* ---------------------- */
+/* -------------------------- */
 
 #secondpanel
 {
-	background:#ccc;
+	background:#fff;
 	width:500px;
 	height:500px;
 	border-radius:5px;
-	border:2px solid #fff;
+	border:2px solid #ccc;
 	margin-left:30px;
 	float:left;
 }
@@ -100,11 +98,12 @@ body
 #canvas
 {
 	cursor:crosshair;
+	background:#ccc;
 }
 
-/* ----------------------- */
+/* ---------------------- */
 /* third panel section */
-/* ----------------------- */
+/* ---------------------- */
 
 #thirdpanel
 {
@@ -156,6 +155,7 @@ body
 }
 
 #clearchat,
+#changenickcolor,
 #readytodraw
 {
 	margin-top:10px;
