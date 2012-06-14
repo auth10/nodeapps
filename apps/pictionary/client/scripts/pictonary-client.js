@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var socket = io.connect('http://pictionary.davefrassoni.com/');
+	var socket = io.connect('.');
 	
 	var status = $('#status'),
 		people = $('#people'),
